@@ -1,10 +1,4 @@
-describe('Addition', function(){
-    describe('when we add one and one', function() {
-        var result = 1 + 1;
-        it('results in two', function() {
-             expect(result).toBe(2);
-        });
-    });
+describe('Reference Types vs Value Types', function(){
     describe('when we set a and b to integers, set a to e, then change b to another integer', function() {
         //Sweetie, here are some examples to test
         var a = 6;
