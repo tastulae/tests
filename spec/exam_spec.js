@@ -6,7 +6,7 @@ describe('Reference Types vs Value Types', function(){
         a = b;
         b = 8;
         it('what do u expect will be the value of a here?', function() {
-            expect(a).toBe('???');
+            expect(a).toBe(7);
         });
     });
     describe('when we set a and b to objects, set a to b, then change the name of b', function() {
@@ -21,10 +21,10 @@ describe('Reference Types vs Value Types', function(){
         a = b;
         b.name = 'esa-matti';
         it('what do u expect will be the value of a.name?', function() {
-            expect(a.name).toBe('???');
+            expect(a.name).toBe('esa-matti');
         });
         it('what do u expect will be the value of b.name?', function() {
-            expect(b.name).toBe('???');
+            expect(b.name).toBe('esa-matti');
         });
     });
     describe('when we set a and b to arrays, set a to b, then push to the end of b', function() {
@@ -33,10 +33,10 @@ describe('Reference Types vs Value Types', function(){
         a = b;
         b.push(10);
         it('what do u expect will be in array a?', function() {
-            expect(a).toEqual('???');
+            expect(a).toEqual([4,5,6,10]);
         });
         it('what do u expect will be in array b', function() {
-            expect(b).toEqual('???');
+            expect(b).toEqual([4,5,6,10]);
         });
     });
     describe('when we create a clone of array a and set it to b, what happens?', function() {
@@ -49,15 +49,15 @@ describe('Reference Types vs Value Types', function(){
         a.push(false);
         b.push(25);
         it('what will array a contain?', function() {
-            expect(b).toEqual('???');
+            expect(b).toEqual([1,true,{name:'tommy',age:34},2,25]);
         });
         it('what will array b contain?', function() {
-            expect(a).toEqual('???');
+            expect(a).toEqual([1,true,{name:'tommy',age:34},2,false]);
         });
         it('what happens if we change the name property of o? does the change happen in both arrays or just one?', function() {
             o.name='sweetie';
-            expect(a).toEqual('???');
-            expect(b).toEqual('???');
+            expect(a).toEqual([1,true,{name:'sweetie',age:34},2,false]);
+            expect(b).toEqual([1,true,{name:'sweetie',age:34},2,25]);
         });
     });
     describe('what about when we pass an object to a function and change a property of the object in the function?', function() {
@@ -71,7 +71,7 @@ describe('Reference Types vs Value Types', function(){
         }
         it('???', function() {
             penetrateSweetie(o);
-            expect(o.wasPenetrated).toBe('???');
+            expect(o.wasPenetrated).toBe(true);
         });
     });
     describe('what about when we pass an object to a function and then set the argument to a new object?', function() {
@@ -89,7 +89,7 @@ describe('Reference Types vs Value Types', function(){
         }
         it('???', function() {
             doesThisChangeWhatORefersToOrNot(o);
-            expect(o.wasPenetrated).toBe('???');
+            expect(o.wasPenetrated).toBe(false);
         });
     });
     describe('what about when we define a variable outside a function then point it to something new inside?', function() {
@@ -106,9 +106,9 @@ describe('Reference Types vs Value Types', function(){
             }
         }
         it('???', function() {
-            expect(o.wasPenetrated).toEqual('???');
+            expect(o.wasPenetrated).toEqual(false);
             doesThisModifyOWhenItIsNotPassedAsAnArg();
-            expect(o.wasPenetrated).toBe('???');
+            expect(o.wasPenetrated).toBe('iHopeSoByNow');
         });
     });
 });
